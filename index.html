@@ -9,18 +9,49 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             font-size: 52px;
             font-weight: bold;
             color: #eb3afa;
-            background-color: #f0f0f0; /* Optional background color */
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        @keyframes move-around {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(calc(100vw - 200px), 0); }
+            50% { transform: translate(calc(100vw - 200px), calc(100vh - 200px)); }
+            75% { transform: translate(0, calc(100vh - 200px)); }
+            100% { transform: translate(0, 0); }
+        }
+
+        @keyframes slide-up-and-down {
+            0% { transform: translateY(50px); }
+            50% { transform: translateY(calc(100vh - 100px)); }
+            100% { transform: translateY(50px); }
+        }
+
+        .spinning-text {
+            animation: spin 4s linear infinite, slide-up-and-down 10s linear infinite;
+            position: absolute;
+            top: 50px;
+        }
+
+        .moving-image {
+            width: 200px; /* Image size */
+            animation: move-around 10s linear infinite; /* Adjust duration for desired speed */
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
 <body>
-    <div>
-        Tiegan Smells Horrendous
-    </div>
+<img src="Tiegan.jpg" alt="Tiegan" class="moving-image">
+<div class="spinning-text">
+    Tiegan Smells Horrendous
+</div>
 </body>
 </html>
